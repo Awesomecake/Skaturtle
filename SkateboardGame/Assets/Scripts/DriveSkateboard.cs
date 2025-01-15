@@ -25,4 +25,11 @@ public class DriveSkateboard : MonoBehaviour
 
         skateboardRB.AddTorque(moveInput * rotationSpeed * Time.fixedDeltaTime);
     }
+
+    public void FlipGravity()
+    {
+        leftTireRB.gravityScale *= -1;
+        rightTireRB.gravityScale *= -1;
+        skateboardRB.gravityScale *= -1;
+    }
 }
