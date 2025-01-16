@@ -15,7 +15,7 @@ public class DriveSkateboard : MonoBehaviour
     private int gravityMult = 1;
 
     //booleans
-    private bool canJump = true;
+    public bool canJump = true;
 
     private void Update()
     {
@@ -50,9 +50,13 @@ public class DriveSkateboard : MonoBehaviour
 
     public void Jump()
     {
-        skateboardRB.velocity = Vector3.zero;
-        rightTireRB.velocity = Vector3.zero;
-        leftTireRB.velocity = Vector3.zero;
-        skateboardRB.AddRelativeForce(new Vector2(0, 1000));
+        if (canJump)
+        {
+            skateboardRB.velocity = Vector3.zero;
+            rightTireRB.velocity = Vector3.zero;
+            leftTireRB.velocity = Vector3.zero;
+            skateboardRB.AddRelativeForce(new Vector2(0, 1000));
+            canJump = false;
+        }
     }
 }
