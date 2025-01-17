@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DriveSkateboard : MonoBehaviour
 {
@@ -19,12 +21,12 @@ public class DriveSkateboard : MonoBehaviour
 
     private void Update()
     {
-        moveInput = Input.GetAxisRaw("Horizontal");
+        //moveInput = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }    
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    Jump();
+        //}    
     }
 
     public virtual void OnCollisionEnter(Collision c)
@@ -66,6 +68,20 @@ public class DriveSkateboard : MonoBehaviour
 
             skateboardRB.AddRelativeForce(new Vector2(0, 1000));
             canJump = false;
+        }
+    }
+
+    public void UpdateMove(InputAction.CallbackContext context)
+    {
+        Vector2 movementVector = context.ReadValue<Vector2>();
+        moveInput = movementVector.x;
+    }
+
+    public void UpdateJump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Jump();
         }
     }
 }
