@@ -52,9 +52,18 @@ public class DriveSkateboard : MonoBehaviour
     {
         if (canJump)
         {
-            skateboardRB.velocity = Vector3.zero;
-            rightTireRB.velocity = Vector3.zero;
-            leftTireRB.velocity = Vector3.zero;
+            Vector3 velocity = skateboardRB.velocity;
+            velocity.y = 0;
+            skateboardRB.velocity = velocity;
+
+            velocity = rightTireRB.velocity;
+            velocity.y = 0;
+            rightTireRB.velocity = velocity;
+
+            velocity = leftTireRB.velocity;
+            velocity.y = 0;
+            leftTireRB.velocity = velocity;
+
             skateboardRB.AddRelativeForce(new Vector2(0, 1000));
             canJump = false;
         }
