@@ -12,6 +12,7 @@ public class DriveSkateboard : MonoBehaviour
 
     [SerializeField] private float speed = 150f;
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private float jumpStrength = 1.5f;
 
     private float moveInput;
     private int gravityMult = 1;
@@ -66,7 +67,7 @@ public class DriveSkateboard : MonoBehaviour
             velocity.y = 0;
             leftTireRB.velocity = velocity;
 
-            skateboardRB.AddRelativeForce(new Vector2(0, 1000));
+            skateboardRB.AddRelativeForce(new Vector2(0, 1000 * jumpStrength));
             canJump = false;
         }
     }
