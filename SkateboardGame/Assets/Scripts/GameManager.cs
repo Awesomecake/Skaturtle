@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     int highScore = 0;
     public int scoreMultiplier = 1;
+    public Vector2 CheckpointPos;
 
     public static GameManager Instance
     {
