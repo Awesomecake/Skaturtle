@@ -805,7 +805,7 @@ MonoBehaviour:
   leftTireRB: {fileID: 4785797340029483218}
   rightTireRB: {fileID: 6954623953223055138}
   skateboardRB: {fileID: 8880340579445800049}
-  speed: 100
+  speed: 150
   rotationSpeed: 600
   jumpStrength: 1.5
   canJump: 1
