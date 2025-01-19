@@ -1425,6 +1425,7 @@ MonoBehaviour:
   skateboardRB: {fileID: 850348577}
   speed: 75
   rotationSpeed: 600
+  jumpStrength: 1.5
   canJump: 1
 --- !u!114 &850348582
 MonoBehaviour:
@@ -3087,6 +3088,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 850348576}
+    - target: {fileID: 8622613384871308919, guid: 25443c0db2de3964cae590c3f80bdc7e, type: 3}
+      propertyPath: fireRange
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3147,10 +3152,6 @@ PrefabInstance:
     - target: {fileID: 5596883864807492482, guid: 029eb6937c9311a459f0c69ece46d7fc, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8891654084337638822, guid: 029eb6937c9311a459f0c69ece46d7fc, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
