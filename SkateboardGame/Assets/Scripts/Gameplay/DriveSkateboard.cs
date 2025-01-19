@@ -8,7 +8,9 @@ public class DriveSkateboard : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D leftTireRB;
     [SerializeField] private Rigidbody2D rightTireRB;
-    [SerializeField] private Rigidbody2D skateboardRB;
+    [SerializeField] private Rigidbody2D playerRB;
+    [SerializeField] private Collider2D skateboardCollider;
+
 
     [SerializeField] private float speed = 150f;
     [SerializeField] private float rotationSpeed;
@@ -19,15 +21,11 @@ public class DriveSkateboard : MonoBehaviour
 
     //booleans
     public bool canJump = true;
+    public bool isGrounded = false;
 
     private void Update()
     {
-        //moveInput = Input.GetAxisRaw("Horizontal");
-
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    Jump();
-        //}    
+        CheckIsGrounded();  
     }
 
     public virtual void OnCollisionEnter(Collision c)
@@ -40,7 +38,11 @@ public class DriveSkateboard : MonoBehaviour
         rightTireRB.AddTorque(-moveInput * gravityMult * speed * Time.fixedDeltaTime);
         leftTireRB.AddTorque(-moveInput * gravityMult * speed * Time.fixedDeltaTime);
 
-        skateboardRB.AddTorque(moveInput * rotationSpeed * Time.fixedDeltaTime);
+        if(!isGrounded)
+        {
+            playerRB.AddTorque(moveInput * -rotationSpeed * Time.fixedDeltaTime);
+        }
+        
     }
 
     public void FlipGravity()
@@ -48,16 +50,16 @@ public class DriveSkateboard : MonoBehaviour
         gravityMult *= -1;
         leftTireRB.gravityScale *= -1;
         rightTireRB.gravityScale *= -1;
-        skateboardRB.gravityScale *= -1;
+        playerRB.gravityScale *= -1;
     }
 
     public void Jump()
     {
         if (canJump)
         {
-            Vector3 velocity = skateboardRB.velocity;
+            Vector3 velocity = playerRB.velocity;
             velocity.y = 0;
-            skateboardRB.velocity = velocity;
+            playerRB.velocity = velocity;
 
             velocity = rightTireRB.velocity;
             velocity.y = 0;
@@ -67,7 +69,7 @@ public class DriveSkateboard : MonoBehaviour
             velocity.y = 0;
             leftTireRB.velocity = velocity;
 
-            skateboardRB.AddRelativeForce(new Vector2(0, 1000 * jumpStrength));
+            playerRB.AddRelativeForce(new Vector2(0, 1000 * jumpStrength));
             canJump = false;
         }
     }
@@ -84,5 +86,13 @@ public class DriveSkateboard : MonoBehaviour
         {
             Jump();
         }
+    }
+
+    public void CheckIsGrounded()
+    {
+        isGrounded = leftTireRB.IsTouchingLayers(LayerMask.GetMask("Ground")) ||
+                     rightTireRB.IsTouchingLayers(LayerMask.GetMask("Ground")) ||
+                     //playerRB.IsTouchingLayers(LayerMask.GetMask("Ground"))||
+                     skateboardCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
     }
 }
