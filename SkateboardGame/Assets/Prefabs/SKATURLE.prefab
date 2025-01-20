@@ -687,7 +687,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 394333057, guid: b931afe6756e0a348aa949054352ed17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -708,7 +708,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 7072610937051087849}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: cf1ea164689fcfe48a2c50c88daa6c83, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -831,6 +831,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b1a25b58-4bb0-4fed-9243-dbe37daa2490
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -5052630530205841387}
+        m_TargetAssemblyTypeName: SkaturtleLogic, Assembly-CSharp
+        m_MethodName: Respawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a55751cf-7183-4467-ac52-c41160793a7c
+    m_ActionName: Player/Reset[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -848,3 +864,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 600e58face442e5468f173449d2172cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  driveSkateboard: {fileID: 1173078819337557280}

@@ -95,4 +95,15 @@ public class DriveSkateboard : MonoBehaviour
                      //playerRB.IsTouchingLayers(LayerMask.GetMask("Ground"))||
                      skateboardCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
     }
+
+    public void ResetVelocity()
+    {
+        leftTireRB.velocity = Vector2.zero;
+        rightTireRB.velocity = Vector2.zero;
+        playerRB.velocity = Vector2.zero;
+
+        leftTireRB.angularVelocity = 0;
+        rightTireRB.angularVelocity = 0;
+        playerRB.angularVelocity = 0;
+    }
 }
