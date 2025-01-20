@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1347326925230972798}
-  - component: {fileID: 2612137744677408990}
   - component: {fileID: 6954623953223055138}
   - component: {fileID: 4883869257468502128}
   m_Layer: 0
@@ -34,58 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4908825102423902913}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2612137744677408990
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360105266366591343}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 5329fa12a02ee4048a4e82c51bd93b38, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.24, y: 1.23}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!50 &6954623953223055138
 Rigidbody2D:
   serializedVersion: 4
@@ -224,7 +171,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 907880851924142119}
-  - component: {fileID: 4600948210205681803}
   - component: {fileID: 3179016576908023435}
   m_Layer: 0
   m_Name: SkateboardTop
@@ -248,98 +194,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4908825102423902913}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &4600948210205681803
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4265791977912313794}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: cf1ea164689fcfe48a2c50c88daa6c83, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 2.7}
-    newSize: {x: 10, y: 2.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 4.0699997, y: -0.13}
-      - {x: 4.3399997, y: 0.07}
-      - {x: 4.54, y: 0.29999998}
-      - {x: 4.6, y: 0.42999998}
-      - {x: 4.6, y: 0.65}
-      - {x: 4.5899997, y: 0.71999997}
-      - {x: 4.54, y: 0.81}
-      - {x: 4.38, y: 0.95}
-      - {x: 4.22, y: 1.02}
-      - {x: 4.15, y: 1.05}
-      - {x: 3.8, y: 1.05}
-      - {x: 3.7099998, y: 1.03}
-      - {x: 3.37, y: 0.96}
-      - {x: 3.09, y: 0.87}
-      - {x: 2.85, y: 0.84999996}
-      - {x: 2.4299998, y: 0.84}
-      - {x: 2.4199998, y: 0.84999996}
-      - {x: 1.9, y: 0.87}
-      - {x: -1.24, y: 0.87}
-      - {x: -1.25, y: 0.85999995}
-      - {x: -2.19, y: 0.85999995}
-      - {x: -2.3899999, y: 0.84999996}
-      - {x: -2.97, y: 0.84}
-      - {x: -2.97, y: 0.84999996}
-      - {x: -3.73, y: 0.93}
-      - {x: -4.13, y: 0.91999996}
-      - {x: -4.27, y: 0.88}
-      - {x: -4.3399997, y: 0.84}
-      - {x: -4.45, y: 0.78}
-      - {x: -4.54, y: 0.69}
-      - {x: -4.6, y: 0.53}
-      - {x: -4.6, y: 0.31}
-      - {x: -4.56, y: 0.19}
-      - {x: -4.41, y: 0.01}
-      - {x: -4.21, y: -0.13}
-      - {x: -3.9199998, y: -0.26999998}
-      - {x: -3.6999998, y: -0.35999998}
-      - {x: -3.3999999, y: -0.42999998}
-      - {x: -3.23, y: -0.44}
-      - {x: -3.08, y: -0.45}
-      - {x: 2.74, y: -0.45}
-      - {x: 2.76, y: -0.47}
-      - {x: 3.05, y: -0.47}
-      - {x: 3.22, y: -0.45999998}
-      - {x: 3.4099998, y: -0.41}
-      - {x: 3.6399999, y: -0.32999998}
-      - {x: 3.81, y: -0.26999998}
-  m_UseDelaunayMesh: 0
 --- !u!70 &3179016576908023435
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -384,7 +238,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1433156360184509937}
-  - component: {fileID: 7920323507954043782}
   - component: {fileID: 4785797340029483218}
   - component: {fileID: 3100506778176471649}
   m_Layer: 0
@@ -409,58 +262,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4908825102423902913}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7920323507954043782
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4822344309078029953}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: a6670aaa8a1899144a69a315569b3236, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.24, y: 1.23}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!50 &4785797340029483218
 Rigidbody2D:
   serializedVersion: 4
@@ -552,7 +353,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.05, y: -0.5, z: 0}
-  m_LocalScale: {x: 1, y: 0.25, z: 1}
+  m_LocalScale: {x: 1.27, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4908825102423902913}
@@ -804,11 +605,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftTireRB: {fileID: 4785797340029483218}
   rightTireRB: {fileID: 6954623953223055138}
-  skateboardRB: {fileID: 8880340579445800049}
+  playerRB: {fileID: 8880340579445800049}
+  skateboardCollider: {fileID: 3179016576908023435}
   speed: 150
   rotationSpeed: 600
   jumpStrength: 1.5
   canJump: 1
+  isGrounded: 1
 --- !u!114 &5505426365353503229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -884,7 +687,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 394333057, guid: b931afe6756e0a348aa949054352ed17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -905,7 +708,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 7072610937051087849}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: cf1ea164689fcfe48a2c50c88daa6c83, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1028,6 +831,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b1a25b58-4bb0-4fed-9243-dbe37daa2490
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -5052630530205841387}
+        m_TargetAssemblyTypeName: SkaturtleLogic, Assembly-CSharp
+        m_MethodName: Respawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a55751cf-7183-4467-ac52-c41160793a7c
+    m_ActionName: Player/Reset[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1045,3 +864,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 600e58face442e5468f173449d2172cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  driveSkateboard: {fileID: 1173078819337557280}
