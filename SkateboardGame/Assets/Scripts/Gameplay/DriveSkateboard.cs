@@ -105,5 +105,10 @@ public class DriveSkateboard : MonoBehaviour
         leftTireRB.angularVelocity = 0;
         rightTireRB.angularVelocity = 0;
         playerRB.angularVelocity = 0;
+
+        gravityMult = 1;
+        leftTireRB.gravityScale = 1;
+        rightTireRB.gravityScale = 1;
+        playerRB.gravityScale = 1;
     }
 }
