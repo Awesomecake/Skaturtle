@@ -12,6 +12,11 @@ public class ProjectileEnemy : Enemy
 
     private void Start()
     {
+        if(!target)
+        {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+
         StartCoroutine(FireProjectileCoroutine());
     }
 

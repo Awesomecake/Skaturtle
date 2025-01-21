@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : Enemy
 {
     [SerializeField] float projectileSpeed = 2;
     [SerializeField] Rigidbody2D _rigidbody;
+    [SerializeField] float projectileLifetime = 10;
 
     private void Awake()
     {
@@ -13,10 +14,17 @@ public class Projectile : MonoBehaviour
         {
             _rigidbody = GetComponent<Rigidbody2D>();
         }
+
+        Invoke(nameof(DestroySelf), projectileLifetime);
     }
 
     public void FireProjectile(Vector2 direction)
     {
         _rigidbody.velocity = direction * projectileSpeed;
+    }
+
+    void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 }
