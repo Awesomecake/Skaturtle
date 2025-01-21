@@ -5,6 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     private GameManager gm;
+    [SerializeField] bool hasCheckpointAlreadyBeenActivated = false;
 
     private void Start()
     {
@@ -13,9 +14,13 @@ public class Checkpoint : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.CompareTag("Player"))
+        if (collider.CompareTag("Player"))
         {
-            gm.CheckpointPos = transform.position;
+            if (!hasCheckpointAlreadyBeenActivated)
+            {
+                gm.CheckpointPos = transform.position;
+                hasCheckpointAlreadyBeenActivated = true;
+            }
         }
     }
 }
