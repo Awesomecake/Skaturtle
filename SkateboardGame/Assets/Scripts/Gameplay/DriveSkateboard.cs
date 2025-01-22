@@ -57,6 +57,11 @@ public class DriveSkateboard : MonoBehaviour
     {
         if (canJump)
         {
+            float relativeHorizontalMovement = Vector3.Dot(playerRB.velocity, transform.right);
+            float relativeForwardMovement = Vector3.Dot(playerRB.velocity, transform.up);
+
+            Debug.Log(relativeHorizontalMovement + " " + relativeForwardMovement);
+
             Vector3 velocity = playerRB.velocity;
             velocity.y = 0;
             playerRB.velocity = velocity;
