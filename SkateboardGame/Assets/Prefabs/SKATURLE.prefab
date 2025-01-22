@@ -58,7 +58,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &4883869257468502128
 CircleCollider2D:
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 8226848095005199638}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Shell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,8 +159,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15, y: 0.3}
-  m_Size: {x: 1, y: 0.73}
+  m_Offset: {x: -0.21, y: 0.3}
+  m_Size: {x: 1.08, y: 0.73}
   m_Direction: 1
 --- !u!1 &4265791977912313794
 GameObject:
@@ -287,7 +287,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &3100506778176471649
 CircleCollider2D:
@@ -539,7 +539,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!235 &4886275374825269866
 WheelJoint2D:
@@ -835,8 +835,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -5052630530205841387}
         m_TargetAssemblyTypeName: SkaturtleLogic, Assembly-CSharp
-        m_MethodName: Respawn
-        m_Mode: 1
+        m_MethodName: InputTriggerRespawn
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -865,3 +865,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   driveSkateboard: {fileID: 1173078819337557280}
+  OnRespawn:
+    m_PersistentCalls:
+      m_Calls: []

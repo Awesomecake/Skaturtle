@@ -7,6 +7,17 @@ public class ResetJumpOnCollision : MonoBehaviour
     public bool canBeCollected = true;
     [SerializeField] private SpriteRenderer sprite;
 
+    private void OnEnable()
+    {
+        SkaturtleLogic.Instance.OnRespawn.AddListener(EnableCollectible);
+    }
+
+    private void OnDisable()
+    {
+        SkaturtleLogic.Instance.OnRespawn.RemoveListener(EnableCollectible);
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision != null)
@@ -29,6 +40,11 @@ public class ResetJumpOnCollision : MonoBehaviour
     private IEnumerator ReEnableCollectible()
     {
         yield return new WaitForSeconds(7.5f);
+        EnableCollectible();
+    }
+
+    private void EnableCollectible()
+    {
         canBeCollected = true;
 
         Color newColor = sprite.color;

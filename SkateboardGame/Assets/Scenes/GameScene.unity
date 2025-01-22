@@ -10562,6 +10562,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SKATURLE
       objectReference: {fileID: 0}
+    - target: {fileID: 7962762363564312599, guid: 9b6fd2972bbf86a43b8aa2f0795390b0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962762363564312599, guid: 9b6fd2972bbf86a43b8aa2f0795390b0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: InputTriggerRespawn
+      objectReference: {fileID: 0}
     - target: {fileID: 8226848095005199638, guid: 9b6fd2972bbf86a43b8aa2f0795390b0, type: 3}
       propertyPath: m_Size.x
       value: 1.08

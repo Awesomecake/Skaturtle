@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class SkaturtleLogic : MonoBehaviour
 {
@@ -35,11 +36,20 @@ public class SkaturtleLogic : MonoBehaviour
 
     }
 
+    public void InputTriggerRespawn(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Respawn();
+        }
+    }
+
     public void Respawn()
     {
         transform.position = GameManager.Instance.CheckpointPos;
         transform.rotation = Quaternion.identity;
         driveSkateboard.ResetVelocity();
+        driveSkateboard.canJump = true;
 
         OnRespawn?.Invoke();
     }
