@@ -8,7 +8,8 @@ public class WheelCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null)
+        //If trigger touches the GROUND
+        if (collision != null && collision.gameObject.layer == 3)
         {
             skateboard.canJump = true;
         }
