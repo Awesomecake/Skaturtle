@@ -79,6 +79,11 @@ public class DriveSkateboard : MonoBehaviour
         }
     }
 
+    public void ApplyLaunchPadForce(float force, Vector3 direction)
+    {
+        playerRB.AddForce(force * direction);
+    }
+
     public void UpdateMove(InputAction.CallbackContext context)
     {
         Vector2 movementVector = context.ReadValue<Vector2>();
