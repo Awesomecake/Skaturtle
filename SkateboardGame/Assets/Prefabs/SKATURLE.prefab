@@ -188,7 +188,7 @@ Transform:
   m_GameObject: {fileID: 4265791977912313794}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.067, y: -0.526, z: 0}
+  m_LocalPosition: {x: -0.067, y: -0.5, z: 0}
   m_LocalScale: {x: 0.1922, y: 0.16870783, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -226,7 +226,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.85}
+  m_Offset: {x: 0, y: 1}
   m_Size: {x: 8.13, y: 2.31}
   m_Direction: 1
 --- !u!1 &4822344309078029953
@@ -503,7 +503,7 @@ Transform:
   m_GameObject: {fileID: 7072610937051087849}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.47, y: -2.85, z: 0}
+  m_LocalPosition: {x: -4.468, y: -2.861, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -530,7 +530,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 4
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: cf1ea164689fcfe48a2c50c88daa6c83, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -581,7 +581,7 @@ WheelJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -0.5, y: -0.55999994}
+  m_Anchor: {x: -0.49900007, y: -0.55999994}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
     m_DampingRatio: 1
@@ -732,7 +732,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.51, y: 0.74}
+  m_Size: {x: 1.46, y: 1.03}
   m_Direction: 1
 --- !u!114 &7962762363564312599
 MonoBehaviour:
