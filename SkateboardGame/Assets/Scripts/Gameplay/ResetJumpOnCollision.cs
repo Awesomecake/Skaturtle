@@ -33,6 +33,7 @@ public class ResetJumpOnCollision : MonoBehaviour
                 sprite.color = newColor;
 
                 StartCoroutine(ReEnableCollectible());
+                GameManager.Instance.score += 10;
             }
         }
     }
