@@ -8,13 +8,14 @@ public class DriveSkateboard : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D leftTireRB;
     [SerializeField] private Rigidbody2D rightTireRB;
-    [SerializeField] private Rigidbody2D playerRB;
+    [SerializeField] public Rigidbody2D playerRB;
     [SerializeField] private Collider2D skateboardCollider;
 
 
     [SerializeField] private float speed = 150f;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float jumpStrength = 1.5f;
+    [SerializeField] private Animator animator;
 
     private float moveInput;
     private int gravityMult = 1;
@@ -57,6 +58,7 @@ public class DriveSkateboard : MonoBehaviour
     {
         if (canJump)
         {
+            animator.SetTrigger("Jump");
             float relativeHorizontalMovement = Vector3.Dot(playerRB.velocity, transform.right);
             float relativeForwardMovement = Vector3.Dot(playerRB.velocity, transform.up);
 

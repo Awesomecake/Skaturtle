@@ -13,10 +13,10 @@ public class EnemySpawner : MonoBehaviour
         SkaturtleLogic.Instance.OnRespawn.AddListener(SpawnEnemy);
     }
 
-    private void OnDisable()
-    {
-        SkaturtleLogic.Instance.OnRespawn.RemoveListener(SpawnEnemy);
-    }
+    //private void OnDisable()
+    //{
+    //    SkaturtleLogic.Instance.OnRespawn.RemoveListener(SpawnEnemy);
+    //}
 
     private void Start()
     {

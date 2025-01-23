@@ -610,6 +610,7 @@ MonoBehaviour:
   speed: 150
   rotationSpeed: 600
   jumpStrength: 1.5
+  animator: {fileID: 1728205947875498669}
   canJump: 1
   isGrounded: 1
 --- !u!114 &5505426365353503229

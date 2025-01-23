@@ -12,10 +12,11 @@ public class ResetJumpOnCollision : MonoBehaviour
         SkaturtleLogic.Instance.OnRespawn.AddListener(EnableCollectible);
     }
 
-    private void OnDisable()
-    {
-        SkaturtleLogic.Instance.OnRespawn.RemoveListener(EnableCollectible);
-    }
+    //private void OnDisable()
+    //{
+    //    SkaturtleLogic.Instance.OnRespawn.RemoveListener(EnableCollectible);
+    //}
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)
