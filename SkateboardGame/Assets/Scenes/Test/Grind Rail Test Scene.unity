@@ -11358,14 +11358,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1173078819337557280, guid: 9b6fd2972bbf86a43b8aa2f0795390b0, type: 3}
-      propertyPath: grindRotationSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1978878007165076771, guid: 9b6fd2972bbf86a43b8aa2f0795390b0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4908825102423902913, guid: 9b6fd2972bbf86a43b8aa2f0795390b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -335.75
@@ -11413,10 +11405,6 @@ PrefabInstance:
     - target: {fileID: 7072610937051087849, guid: 9b6fd2972bbf86a43b8aa2f0795390b0, type: 3}
       propertyPath: m_Name
       value: SKATURLE
-      objectReference: {fileID: 0}
-    - target: {fileID: 7346559771432561136, guid: 9b6fd2972bbf86a43b8aa2f0795390b0, type: 3}
-      propertyPath: playOnAwake
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
