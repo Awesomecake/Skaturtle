@@ -5,9 +5,17 @@ using UnityEngine;
 public class GrindRailSegment : MonoBehaviour
 {
     [SerializeField] GrindRail parentGrindRail;
+    [SerializeField] public List<Transform> waypoints;
 
     private void Awake()
     {
+        waypoints = new List<Transform>();
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            waypoints.Add(transform.GetChild(i));
+        }
+
         if (parentGrindRail == null)
         {
             parentGrindRail = GetComponentInParent<GrindRail>();

@@ -4,8 +4,28 @@ using UnityEngine;
 
 public class GrindRail : MonoBehaviour
 {
+    [SerializeField] List<GrindRailSegment> grindRailSegments;
     [SerializeField] List<Transform> grindRailWaypoints;
     [SerializeField] float heightOffset = 0.3f;
+
+    private void Start()
+    {
+        grindRailWaypoints = new List<Transform>();
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            GrindRailSegment railSegment = transform.GetChild(i).GetComponent<GrindRailSegment>();
+            if(railSegment != null)
+            {
+                grindRailWaypoints.AddRange(railSegment.waypoints);
+            }
+        }
+
+        //foreach (GrindRailSegment segment in grindRailSegments)
+        //{
+        //    grindRailWaypoints.AddRange(segment.waypoints);
+        //}
+    }
 
     public void AttachPlayerToGrindRail(DriveSkateboard skateboard)
     {

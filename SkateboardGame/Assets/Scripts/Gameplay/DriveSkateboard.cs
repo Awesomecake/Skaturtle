@@ -28,6 +28,7 @@ public class DriveSkateboard : MonoBehaviour
 
     [SerializeField] private float grindVelocity;
     [SerializeField] Stack<Transform> grindWaypoints;
+    [SerializeField] ParticleSystem grindSparks;
 
     private void Update()
     {
@@ -64,7 +65,7 @@ public class DriveSkateboard : MonoBehaviour
                 float distanceToNextWaypoint = Vector2.Distance((Vector2)grindCollider.transform.position, nextWaypointPos);
 
                 Debug.Log("Distance to next waypoint: " + distanceToNextWaypoint);
-                if (distanceToNextWaypoint < 2.5f)
+                if (distanceToNextWaypoint < 1.5f)
                 {
                     Debug.Log("Popping waypoints stack");
                     grindWaypoints.Pop();
@@ -175,6 +176,8 @@ public class DriveSkateboard : MonoBehaviour
         canJump = true;
         playerRB.freezeRotation = true;
         grindWaypoints = new Stack<Transform>(waypoints);
+
+        grindSparks.Play();
     }
 
     private void StopGrind(bool applyExitLaunchForce = false)
@@ -192,5 +195,8 @@ public class DriveSkateboard : MonoBehaviour
         }
 
         grindWaypoints.Clear();
+
+        grindSparks.Stop();
+
     }
 }
