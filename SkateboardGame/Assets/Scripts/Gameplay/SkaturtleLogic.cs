@@ -49,6 +49,7 @@ public class SkaturtleLogic : MonoBehaviour
         transform.position = GameManager.Instance.CheckpointPos;
         transform.rotation = Quaternion.identity;
         driveSkateboard.ResetVelocity();
+        driveSkateboard.StopGrind();
         driveSkateboard.canJump = true;
 
         OnRespawn?.Invoke();

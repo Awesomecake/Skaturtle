@@ -180,7 +180,7 @@ public class DriveSkateboard : MonoBehaviour
         grindSparks.Play();
     }
 
-    private void StopGrind(bool applyExitLaunchForce = false)
+    public void StopGrind(bool applyExitLaunchForce = false)
     {
         Debug.Log("Stopping Grind");
 
