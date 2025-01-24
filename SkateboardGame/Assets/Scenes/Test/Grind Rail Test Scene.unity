@@ -5998,7 +5998,7 @@ Transform:
   - {fileID: 981800413}
   - {fileID: 1544600558}
   - {fileID: 916041642}
-  - {fileID: 1862559048}
+  - {fileID: 1025247679}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &802167792
@@ -7750,7 +7750,7 @@ GameObject:
   - component: {fileID: 1025247679}
   - component: {fileID: 1025247680}
   m_Layer: 0
-  m_Name: Grind Rail 1
+  m_Name: Grind Rails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7764,7 +7764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025247678}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7785,7 +7785,7 @@ Transform:
   - {fileID: 1661486654}
   - {fileID: 37609321}
   - {fileID: 1555332710}
-  m_Father: {fileID: 1862559048}
+  m_Father: {fileID: 800307358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1025247680
 MonoBehaviour:
@@ -14635,38 +14635,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3712171713587218546, guid: e3e09ab3a7c874a40b7aa01cf0dbbb70, type: 3}
   m_PrefabInstance: {fileID: 953514610}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1862559047
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1862559048}
-  m_Layer: 0
-  m_Name: Grind Rails
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1862559048
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1862559047}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1025247679}
-  m_Father: {fileID: 800307358}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1870882579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16689,7 +16657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5786774671043442132, guid: e3fc3a0d27bed3a45980d02a0d51f635, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8183630011976292375, guid: e3fc3a0d27bed3a45980d02a0d51f635, type: 3}
       propertyPath: m_LocalPosition.x

@@ -10,6 +10,7 @@ public class DriveSkateboard : MonoBehaviour
     [SerializeField] private Rigidbody2D rightTireRB;
     [SerializeField] public Rigidbody2D playerRB;
     [SerializeField] private Collider2D skateboardCollider;
+    [SerializeField] private Collider2D grindCollider;
 
 
     [SerializeField] private float speed = 150f;
@@ -23,10 +24,14 @@ public class DriveSkateboard : MonoBehaviour
     //booleans
     public bool canJump = true;
     public bool isGrounded = false;
+    public bool isGrinding = false;
+
+    [SerializeField] private float grindVelocity;
+    [SerializeField] Stack<Transform> grindWaypoints;
 
     private void Update()
     {
-        CheckIsGrounded();  
+        CheckIsGrounded();
     }
 
     public virtual void OnCollisionEnter(Collision c)
@@ -39,11 +44,39 @@ public class DriveSkateboard : MonoBehaviour
         rightTireRB.AddTorque(-moveInput * gravityMult * speed * Time.fixedDeltaTime);
         leftTireRB.AddTorque(-moveInput * gravityMult * speed * Time.fixedDeltaTime);
 
-        if(!isGrounded)
+        if (!isGrounded)
         {
             playerRB.AddTorque(moveInput * -rotationSpeed * Time.fixedDeltaTime);
         }
-        
+
+        if (isGrinding)
+        {
+            if (grindWaypoints.Count > 0)
+            {
+                Debug.Log("Waypoints count: " + grindWaypoints.Count);
+                Debug.Log("Next Waypoint: " + grindWaypoints.Peek().ToString());
+
+                Vector2 nextWaypointPos = grindWaypoints.Peek().position;
+                Vector2 direction = (nextWaypointPos - (Vector2)grindCollider.transform.position).normalized;
+
+                playerRB.velocity = direction * grindVelocity;
+
+                float distanceToNextWaypoint = Vector2.Distance((Vector2)grindCollider.transform.position, nextWaypointPos);
+
+                Debug.Log("Distance to next waypoint: " + distanceToNextWaypoint);
+                if (distanceToNextWaypoint < 2.5f)
+                {
+                    Debug.Log("Popping waypoints stack");
+                    grindWaypoints.Pop();
+                }
+            }
+            else
+            {
+                //Stop Grinding
+                StopGrind(true);
+            }
+        }
+
     }
 
     public void FlipGravity()
@@ -58,6 +91,11 @@ public class DriveSkateboard : MonoBehaviour
     {
         if (canJump)
         {
+            if(isGrinding)
+            {
+                StopGrind();
+            }
+
             animator.SetTrigger("Jump");
             float relativeHorizontalMovement = Vector3.Dot(playerRB.velocity, transform.right);
             float relativeForwardMovement = Vector3.Dot(playerRB.velocity, transform.up);
@@ -122,5 +160,37 @@ public class DriveSkateboard : MonoBehaviour
         leftTireRB.gravityScale = 1;
         rightTireRB.gravityScale = 1;
         playerRB.gravityScale = 1;
+    }
+
+    public void StartGrind(List<Transform> waypoints)
+    {
+        Debug.Log("Starting Grind");
+
+        grindVelocity = playerRB.velocity.magnitude;
+        if (grindVelocity < 10)
+        {
+            grindVelocity = 10;
+        }
+        isGrinding = true;
+        canJump = true;
+        playerRB.freezeRotation = true;
+        grindWaypoints = new Stack<Transform>(waypoints);
+    }
+
+    private void StopGrind(bool applyExitLaunchForce = false)
+    {
+        Debug.Log("Stopping Grind");
+
+        isGrinding = false;
+        playerRB.freezeRotation = false;
+
+        grindVelocity = 0;
+
+        if (applyExitLaunchForce)
+        {
+            ApplyLaunchPadForce(100, playerRB.velocity.normalized);
+        }
+
+        grindWaypoints.Clear();
     }
 }
