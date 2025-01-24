@@ -8,6 +8,10 @@ public class Projectile : Enemy
     [SerializeField] Rigidbody2D _rigidbody;
     [SerializeField] float projectileLifetime = 10;
 
+    private void OnEnable()
+    {
+        SkaturtleLogic.Instance.OnRespawn.AddListener(DestroySelf);
+    }
     private void Awake()
     {
         if (!_rigidbody)
