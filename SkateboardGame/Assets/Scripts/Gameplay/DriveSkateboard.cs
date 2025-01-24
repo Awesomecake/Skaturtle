@@ -34,6 +34,10 @@ public class DriveSkateboard : MonoBehaviour
     [SerializeField] Stack<Transform> grindWaypoints;
     [SerializeField] ParticleSystem grindSparks;
 
+    [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private Texture2D normalColor;
+    [SerializeField] private Texture2D jumplessColor;
+
     private void Update()
     {
         CheckIsGrounded();
@@ -104,6 +108,7 @@ public class DriveSkateboard : MonoBehaviour
                 StopGrind(true);
             }
         }
+        sprite.material.SetTexture("_PaletteTex", canJump?normalColor:jumplessColor);
 
     }
 
@@ -223,7 +228,11 @@ public class DriveSkateboard : MonoBehaviour
             ApplyLaunchPadForce(100, playerRB.velocity.normalized);
         }
 
-        grindWaypoints.Clear();
+        if(grindWaypoints != null)
+        {
+            grindWaypoints.Clear();
+        }
+        
 
         grindSparks.Stop();
 
