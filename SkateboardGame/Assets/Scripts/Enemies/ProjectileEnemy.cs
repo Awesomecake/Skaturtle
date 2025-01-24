@@ -10,12 +10,16 @@ public class ProjectileEnemy : Enemy
     [SerializeField] float fireRateInSeconds;
     [SerializeField] float fireRange;
 
+    float initialScaleX;
+
     private void Start()
     {
         if(!target)
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
         }
+
+        initialScaleX = transform.localScale.x;
 
         StartCoroutine(FireProjectileCoroutine());
     }
@@ -37,6 +41,16 @@ public class ProjectileEnemy : Enemy
         if (projectileDistance.magnitude < fireRange)
         {
             Vector2 projectileDirection = projectileDistance.normalized;
+
+            if(projectileDirection.x > 0)
+            {
+                transform.localScale = new Vector3(-initialScaleX, transform.localScale.y, 0);
+            }
+            else
+            {
+                transform.localScale = new Vector3(initialScaleX, transform.localScale.y, 0);
+            }
+
             Projectile newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
             newProjectile.FireProjectile(projectileDirection);
         }
