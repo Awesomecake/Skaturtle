@@ -1665,7 +1665,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: -1000
@@ -8379,6 +8379,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3712171713587218546, guid: e3e09ab3a7c874a40b7aa01cf0dbbb70, type: 3}
   m_PrefabInstance: {fileID: 985733675}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1009334503 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7072610937051087849, guid: 9b6fd2972bbf86a43b8aa2f0795390b0, type: 3}
+  m_PrefabInstance: {fileID: 1416236652}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1012900939
 PrefabInstance:
@@ -18756,6 +18761,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6117397947205029349, guid: fe2d7f28a745b6348af128e48f891032, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1009334503}
+    - target: {fileID: 6117397947205029349, guid: fe2d7f28a745b6348af128e48f891032, type: 3}
+      propertyPath: scorePopup
+      value: 
+      objectReference: {fileID: 5651164734079309378, guid: bc03cf96e8e5d8d49aedf9c73a6e05b8, type: 3}
     - target: {fileID: 6570559216881219411, guid: fe2d7f28a745b6348af128e48f891032, type: 3}
       propertyPath: m_Name
       value: GameManager

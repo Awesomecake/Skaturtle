@@ -60,6 +60,8 @@ public class DriveSkateboard : MonoBehaviour
 
         if (isGrinding)
         {
+            GameManager.Instance.score += 10;
+
             if (grindWaypoints.Count > 0)
             {
                 //Debug.Log("Waypoints count: " + grindWaypoints.Count);
@@ -84,7 +86,7 @@ public class DriveSkateboard : MonoBehaviour
                     angle += 180;
                 }
 
-                if(angleDifference > 270)
+                if (angleDifference > 270)
                 {
                     angle += 360;
                 }
@@ -108,7 +110,7 @@ public class DriveSkateboard : MonoBehaviour
                 StopGrind(true);
             }
         }
-        sprite.material.SetTexture("_PaletteTex", canJump?normalColor:jumplessColor);
+        sprite.material.SetTexture("_PaletteTex", canJump ? normalColor : jumplessColor);
 
     }
 
@@ -241,11 +243,11 @@ public class DriveSkateboard : MonoBehaviour
             ApplyLaunchPadForce(100, playerRB.velocity.normalized);
         }
 
-        if(grindWaypoints != null)
+        if (grindWaypoints != null)
         {
             grindWaypoints.Clear();
         }
-        
+
 
         grindSparks.Stop();
 
