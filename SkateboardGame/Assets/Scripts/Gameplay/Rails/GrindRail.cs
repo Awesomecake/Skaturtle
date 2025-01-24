@@ -15,7 +15,7 @@ public class GrindRail : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             GrindRailSegment railSegment = transform.GetChild(i).GetComponent<GrindRailSegment>();
-            if(railSegment != null)
+            if (railSegment != null)
             {
                 grindRailWaypoints.AddRange(railSegment.waypoints);
             }
@@ -30,10 +30,24 @@ public class GrindRail : MonoBehaviour
     public void AttachPlayerToGrindRail(DriveSkateboard skateboard)
     {
         int nearestWaypointIndex = FindNearestWaypointIndex(skateboard.transform);
-
         List<Transform> waypointsToFollow;
 
-        if(skateboard.playerRB.velocity.x > 0)
+        Vector2 railDirection;
+
+        if (nearestWaypointIndex == 0)
+        {
+            railDirection = grindRailWaypoints[nearestWaypointIndex + 1].position - grindRailWaypoints[nearestWaypointIndex].position;
+            railDirection.Normalize();
+        }
+        else
+        {
+            railDirection = grindRailWaypoints[nearestWaypointIndex].position - grindRailWaypoints[nearestWaypointIndex - 1].position;
+            railDirection.Normalize();
+        }
+
+        float relativeDirection = Vector2.Dot(railDirection, skateboard.playerRB.velocity.normalized);
+
+        if (relativeDirection > 0)
         {
             waypointsToFollow = grindRailWaypoints.GetRange(nearestWaypointIndex, grindRailWaypoints.Count - nearestWaypointIndex);
             waypointsToFollow.Reverse();
