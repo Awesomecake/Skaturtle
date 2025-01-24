@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Spikes : MonoBehaviour
 {
-    private SkaturtleLogic player;
+    private GameObject player;
+    private SkaturtleLogic logic;
+
+    [SerializeField] GameObject death;
+    private GameObject deathObject;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<SkaturtleLogic>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        logic = GameObject.FindGameObjectWithTag("Player").GetComponent<SkaturtleLogic>();
     }
 
     // Update is called once per frame
@@ -16,7 +21,17 @@ public class Spikes : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
-            player.Respawn();
+            deathObject = Instantiate(death, player.transform.position, Quaternion.identity);
+            player.SetActive(false);
+            StartCoroutine(Reset());
         }
+    }
+
+    IEnumerator Reset()
+    {
+        yield return new WaitForSeconds(1.5f);
+        logic.Respawn();
+        player.SetActive(true);
+        Destroy(deathObject);
     }
 }

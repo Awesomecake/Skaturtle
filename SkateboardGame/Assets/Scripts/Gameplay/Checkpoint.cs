@@ -6,6 +6,8 @@ public class Checkpoint : MonoBehaviour
 {
     private GameManager gm;
     [SerializeField] bool hasCheckpointAlreadyBeenActivated = false;
+    [SerializeField] bool finishLine = false;
+    [SerializeField] GameObject winScreen;
 
     private void Start()
     {
@@ -20,6 +22,10 @@ public class Checkpoint : MonoBehaviour
             {
                 gm.CheckpointPos = transform.position;
                 hasCheckpointAlreadyBeenActivated = true;
+            }
+            if (finishLine)
+            {
+                winScreen.SetActive(true);
             }
         }
     }
