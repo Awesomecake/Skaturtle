@@ -5853,3 +5853,4 @@ MonoBehaviour:
   OnRespawn:
     m_PersistentCalls:
       m_Calls: []
+  explosionPrefab: {fileID: 9072851705761344746, guid: a96c726361b5abf4eb3bbc3868d0facc, type: 3}

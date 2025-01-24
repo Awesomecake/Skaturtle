@@ -152,6 +152,19 @@ public class DriveSkateboard : MonoBehaviour
         }
     }
 
+    public void Freeze()
+    {
+        playerRB.isKinematic = true;
+        playerRB.velocity = Vector2.zero;
+        leftTireRB.velocity = Vector2.zero;
+        rightTireRB.velocity = Vector2.zero;
+    }
+
+    public void UnFreeze()
+    {
+        playerRB.isKinematic = false;
+    }
+
     public void ApplyLaunchPadForce(float force, Vector3 direction)
     {
         playerRB.AddForce(force * direction);

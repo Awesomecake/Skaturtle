@@ -13,6 +13,10 @@ public class SkaturtleLogic : MonoBehaviour
 
     public UnityEvent OnRespawn;
 
+    //OnDeath Explosion
+    [SerializeField] GameObject explosionPrefab;
+    private bool isRespawning = false;
+
     public static SkaturtleLogic Instance
     {
         get
@@ -44,14 +48,38 @@ public class SkaturtleLogic : MonoBehaviour
         }
     }
 
-    public void Respawn()
+    //Starts Respawn Logic, Triggers Explosion
+    public void Respawn() 
+    {
+        if (!isRespawning)
+        {
+            isRespawning = true;
+            Instantiate(explosionPrefab, driveSkateboard.transform.position, Quaternion.identity);
+            driveSkateboard.Freeze();
+            driveSkateboard.GetComponent<Renderer>().enabled = false;
+            StartCoroutine(ResetRespawnEffects());
+        }
+    }
+
+    //Resets Player Position and Other Interactions
+    private void ResetGameScene()
     {
         transform.position = GameManager.Instance.CheckpointPos;
         transform.rotation = Quaternion.identity;
         driveSkateboard.ResetVelocity();
         driveSkateboard.StopGrind();
         driveSkateboard.canJump = true;
+        isRespawning = false;
 
         OnRespawn?.Invoke();
+    }
+
+    //Ends Respawn Visual Effects
+    IEnumerator ResetRespawnEffects()
+    {
+        yield return new WaitForSeconds(1.5f);
+        ResetGameScene();
+        driveSkateboard.UnFreeze();
+        driveSkateboard.GetComponent<Renderer>().enabled = true;
     }
 }
