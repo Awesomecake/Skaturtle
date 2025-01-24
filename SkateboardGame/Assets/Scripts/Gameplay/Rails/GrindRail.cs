@@ -38,22 +38,22 @@ public class GrindRail : MonoBehaviour
             waypointsToFollow = grindRailWaypoints.GetRange(nearestWaypointIndex, grindRailWaypoints.Count - nearestWaypointIndex);
             waypointsToFollow.Reverse();
 
-            Debug.Log("Forward Stack: ");
-            foreach(Transform waypoint in waypointsToFollow)
-            {
-                Debug.Log(waypoint.ToString());
-            }
+            //Debug.Log("Forward Stack: ");
+            //foreach(Transform waypoint in waypointsToFollow)
+            //{
+            //    Debug.Log(waypoint.ToString());
+            //}
         }
         else
         {
             waypointsToFollow = grindRailWaypoints.GetRange(0, nearestWaypointIndex);
             //waypointsToFollow.Reverse();
 
-            Debug.Log("Backward Stack: ");
-            foreach (Transform waypoint in waypointsToFollow)
-            {
-                Debug.Log(waypoint.ToString());
-            }
+            //Debug.Log("Backward Stack: ");
+            //foreach (Transform waypoint in waypointsToFollow)
+            //{
+            //    Debug.Log(waypoint.ToString());
+            //}
         }
 
         skateboard.StartGrind(waypointsToFollow);

@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
+using UnityEditor.AnimatedValues;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class DriveSkateboard : MonoBehaviour
@@ -27,6 +30,7 @@ public class DriveSkateboard : MonoBehaviour
     public bool isGrinding = false;
 
     [SerializeField] private float grindVelocity;
+    [SerializeField] float grindRotationSpeed = 10;
     [SerializeField] Stack<Transform> grindWaypoints;
     [SerializeField] ParticleSystem grindSparks;
 
@@ -54,20 +58,43 @@ public class DriveSkateboard : MonoBehaviour
         {
             if (grindWaypoints.Count > 0)
             {
-                Debug.Log("Waypoints count: " + grindWaypoints.Count);
-                Debug.Log("Next Waypoint: " + grindWaypoints.Peek().ToString());
+                //Debug.Log("Waypoints count: " + grindWaypoints.Count);
+                //Debug.Log("Next Waypoint: " + grindWaypoints.Peek().ToString());
 
-                Vector2 nextWaypointPos = grindWaypoints.Peek().position;
+                Transform nextWaypoint = grindWaypoints.Peek();
+                Vector2 nextWaypointPos = nextWaypoint.position;
                 Vector2 direction = (nextWaypointPos - (Vector2)grindCollider.transform.position).normalized;
 
                 playerRB.velocity = direction * grindVelocity;
 
+                float angle = nextWaypoint.eulerAngles.z;
+
+                float angleDifference = Mathf.Abs(playerRB.rotation - angle);
+
+                //Debug.Log("Dot product of " + transform.up + " and " + direction + " = " + Vector2.Dot(transform.up, direction));
+                Debug.Log("Angle difference: " + playerRB.rotation + " - " + angle + " = " + angleDifference);
+
+                if (angleDifference > 90 && angleDifference < 270)
+                {
+                    Debug.Log("Player should be upsided down");
+                    angle += 180;
+                }
+
+                if(angleDifference > 270)
+                {
+                    angle += 360;
+                }
+
+                Debug.Log("Target angle = " + angle);
+
+                playerRB.MoveRotation(Mathf.Lerp(playerRB.rotation, angle, grindRotationSpeed * Time.deltaTime));
+
                 float distanceToNextWaypoint = Vector2.Distance((Vector2)grindCollider.transform.position, nextWaypointPos);
 
-                Debug.Log("Distance to next waypoint: " + distanceToNextWaypoint);
+                //Debug.Log("Distance to next waypoint: " + distanceToNextWaypoint);
                 if (distanceToNextWaypoint < 1.5f)
                 {
-                    Debug.Log("Popping waypoints stack");
+                    //Debug.Log("Popping waypoints stack");
                     grindWaypoints.Pop();
                 }
             }
@@ -92,7 +119,7 @@ public class DriveSkateboard : MonoBehaviour
     {
         if (canJump)
         {
-            if(isGrinding)
+            if (isGrinding)
             {
                 StopGrind();
             }
@@ -172,9 +199,12 @@ public class DriveSkateboard : MonoBehaviour
         {
             grindVelocity = 10;
         }
+        //playerRB.SetRotation(playerRB.rotation % 360);
+        NormalizeRigidbodyRotation();
+
         isGrinding = true;
         canJump = true;
-        playerRB.freezeRotation = true;
+
         grindWaypoints = new Stack<Transform>(waypoints);
 
         grindSparks.Play();
@@ -185,7 +215,6 @@ public class DriveSkateboard : MonoBehaviour
         Debug.Log("Stopping Grind");
 
         isGrinding = false;
-        playerRB.freezeRotation = false;
 
         grindVelocity = 0;
 
@@ -198,5 +227,18 @@ public class DriveSkateboard : MonoBehaviour
 
         grindSparks.Stop();
 
+    }
+
+    private void NormalizeRigidbodyRotation()
+    {
+        float angle = playerRB.rotation % 360;
+        if (angle < 0)
+        {
+            angle += 360;
+        }
+
+        Debug.Log("Normalizing rotation from " + playerRB.rotation + " to " + angle);
+
+        playerRB.SetRotation(angle);
     }
 }
