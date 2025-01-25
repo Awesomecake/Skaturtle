@@ -5593,6 +5593,7 @@ MonoBehaviour:
   canJump: 1
   isGrounded: 1
   isGrinding: 0
+  isInvul: 0
   grindVelocity: 0
   grindRotationSpeed: 10
   grindSparks: {fileID: 7346559771432561136}
@@ -7158,7 +7159,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -7166,8 +7167,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.94117653, g: 0.77647066, b: 0.4431373, a: 1}
-        key1: {r: 0.85098046, g: 0.43137258, b: 0.13725491, a: 1}
+        key0: {r: 0.81568635, g: 0.81568635, b: 0.81568635, a: 1}
+        key1: {r: 0.98823535, g: 0.85098046, b: 0.6117647, a: 1}
         key2: {r: 0.8431373, g: 0.59607846, b: 0.28235295, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
