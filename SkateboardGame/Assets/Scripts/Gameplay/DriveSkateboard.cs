@@ -37,6 +37,8 @@ public class DriveSkateboard : MonoBehaviour
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private Texture2D normalColor;
     [SerializeField] private Texture2D jumplessColor;
+    [SerializeField] private Texture2D normalInvulColor;
+    [SerializeField] private Texture2D jumplessInvulColor;
 
     private void Update()
     {
@@ -110,7 +112,7 @@ public class DriveSkateboard : MonoBehaviour
                 StopGrind(true);
             }
         }
-        sprite.material.SetTexture("_PaletteTex", canJump ? normalColor : jumplessColor);
+        sprite.material.SetTexture("_PaletteTex", playerRB.velocity.magnitude > 10? (canJump ? normalInvulColor : jumplessInvulColor): (canJump ? normalColor : jumplessColor));
 
     }
 

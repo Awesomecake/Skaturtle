@@ -5597,6 +5597,8 @@ MonoBehaviour:
   sprite: {fileID: 4639850969811549935}
   normalColor: {fileID: 2800000, guid: 3353436318ad39f44b89504bee3f561c, type: 3}
   jumplessColor: {fileID: 2800000, guid: eea0e5f75de077e4380146eda39a8a77, type: 3}
+  normalInvulColor: {fileID: 2800000, guid: ad2fc746e739d594aa85ae3269c9d9ac, type: 3}
+  jumplessInvulColor: {fileID: 2800000, guid: c9a9f237147901044a87e06aa7e9412d, type: 3}
 --- !u!114 &5505426365353503229
 MonoBehaviour:
   m_ObjectHideFlags: 0
