@@ -12,7 +12,7 @@ public abstract class Enemy : MonoBehaviour
 
         if (collider.CompareTag("Player"))
         {
-            if(collider.GetComponent<DriveSkateboard>() != null && collider.GetComponent<DriveSkateboard>().playerRB.velocity.magnitude > 10)
+            if(collider.GetComponent<DriveSkateboard>() != null && collider.GetComponent<DriveSkateboard>().isInvul)
             {
                 GameManager.Instance.score += 500;
                 Destroy(gameObject);
