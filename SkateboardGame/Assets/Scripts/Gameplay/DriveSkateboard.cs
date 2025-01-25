@@ -15,6 +15,8 @@ public class DriveSkateboard : MonoBehaviour
     [SerializeField] private Collider2D skateboardCollider;
     [SerializeField] private Collider2D grindCollider;
 
+    [SerializeField] AudioSource jumpAudio;
+    [SerializeField] AudioSource grindAudio;
 
     [SerializeField] private float speed = 150f;
     [SerializeField] private float rotationSpeed;
@@ -143,6 +145,8 @@ public class DriveSkateboard : MonoBehaviour
                 StopGrind();
             }
 
+            jumpAudio.Play();
+
             animator.SetTrigger("Jump");
             float relativeHorizontalMovement = Vector3.Dot(playerRB.velocity, transform.right);
             float relativeForwardMovement = Vector3.Dot(playerRB.velocity, transform.up);
@@ -226,6 +230,8 @@ public class DriveSkateboard : MonoBehaviour
     {
         Debug.Log("Starting Grind");
 
+        grindAudio.Play();
+
         grindVelocity = playerRB.velocity.magnitude;
         if (grindVelocity < 12)
         {
@@ -245,6 +251,8 @@ public class DriveSkateboard : MonoBehaviour
     public void StopGrind(bool applyExitLaunchForce = false)
     {
         Debug.Log("Stopping Grind");
+
+        grindAudio.Stop();
 
         isGrinding = false;
 
