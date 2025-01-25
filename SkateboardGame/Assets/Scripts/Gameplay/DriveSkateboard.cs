@@ -29,6 +29,7 @@ public class DriveSkateboard : MonoBehaviour
     public bool canJump = true;
     public bool isGrounded = false;
     public bool isGrinding = false;
+    public bool isInvul = false;
 
     [SerializeField] private float grindVelocity;
     [SerializeField] float grindRotationSpeed = 10;
@@ -60,7 +61,7 @@ public class DriveSkateboard : MonoBehaviour
         {
             playerRB.AddTorque(moveInput * -rotationSpeed * Time.fixedDeltaTime);
         }
-
+        isInvul = playerRB.velocity.magnitude > 10;
         if (isGrinding)
         {
             GameManager.Instance.score += 10;
@@ -113,7 +114,7 @@ public class DriveSkateboard : MonoBehaviour
                 StopGrind(true);
             }
         }
-        sprite.material.SetTexture("_PaletteTex", playerRB.velocity.magnitude > 10? (canJump ? normalInvulColor : jumplessInvulColor): (canJump ? normalColor : jumplessColor));
+        sprite.material.SetTexture("_PaletteTex", isInvul? (canJump ? normalInvulColor : jumplessInvulColor): (canJump ? normalColor : jumplessColor));
 
         if (playerRB.velocity.magnitude > 10)
         {
