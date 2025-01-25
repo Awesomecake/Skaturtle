@@ -116,7 +116,7 @@ public class DriveSkateboard : MonoBehaviour
         }
         sprite.material.SetTexture("_PaletteTex", isInvul? (canJump ? normalInvulColor : jumplessInvulColor): (canJump ? normalColor : jumplessColor));
 
-        if (playerRB.velocity.magnitude > 10)
+        if (isInvul)
         {
             speedParticles.Play();
         }
