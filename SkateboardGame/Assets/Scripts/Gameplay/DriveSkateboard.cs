@@ -227,9 +227,9 @@ public class DriveSkateboard : MonoBehaviour
         Debug.Log("Starting Grind");
 
         grindVelocity = playerRB.velocity.magnitude;
-        if (grindVelocity < 10)
+        if (grindVelocity < 12)
         {
-            grindVelocity = 10;
+            grindVelocity = 12;
         }
         //playerRB.SetRotation(playerRB.rotation % 360);
         NormalizeRigidbodyRotation();
