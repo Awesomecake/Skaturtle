@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     int highScore = 0;
     public int scoreMultiplier = 1;
     public Vector2 CheckpointPos;
+    [SerializeField] AudioSource Music;
 
     public static GameManager Instance
     {
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
+            Music.volume = 0.2f;
             DontDestroyOnLoad(gameObject);
         }
         else if (_instance != this)

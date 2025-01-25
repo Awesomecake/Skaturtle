@@ -49,6 +49,7 @@ MonoBehaviour:
   score: 0
   scoreMultiplier: 1
   CheckpointPos: {x: 0, y: 0}
+  Music: {fileID: -2504712477721395357}
 --- !u!82 &-2504712477721395357
 AudioSource:
   m_ObjectHideFlags: 0
