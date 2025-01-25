@@ -20,6 +20,7 @@ public class DriveSkateboard : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float jumpStrength = 1.5f;
     [SerializeField] private Animator animator;
+    [SerializeField] ParticleSystem speedParticles;
 
     private float moveInput;
     private int gravityMult = 1;
@@ -114,6 +115,14 @@ public class DriveSkateboard : MonoBehaviour
         }
         sprite.material.SetTexture("_PaletteTex", playerRB.velocity.magnitude > 10? (canJump ? normalInvulColor : jumplessInvulColor): (canJump ? normalColor : jumplessColor));
 
+        if (playerRB.velocity.magnitude > 10)
+        {
+            speedParticles.Play();
+        }
+        else
+        {
+            speedParticles.Stop();
+        }
     }
 
     public void FlipGravity()
