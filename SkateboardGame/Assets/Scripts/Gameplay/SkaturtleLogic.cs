@@ -57,6 +57,7 @@ public class SkaturtleLogic : MonoBehaviour
             Instantiate(explosionPrefab, driveSkateboard.transform.position, Quaternion.identity);
             driveSkateboard.Freeze();
             driveSkateboard.GetComponent<Renderer>().enabled = false;
+            driveSkateboard.StopGrind();
             StartCoroutine(ResetRespawnEffects());
         }
     }
